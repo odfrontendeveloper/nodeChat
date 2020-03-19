@@ -1,0 +1,143 @@
+body {
+    /*background-color: rgb(89, 89, 89);*/
+}
+header {
+	height: 58px;
+	background-color: rgb(51, 51, 51);
+    display: flex;
+}
+.head-info {
+	font-family: 'Gugi', sans-serif;
+    color: rgb(255, 170, 0);
+	line-height: 55px;
+	padding-left: 15px;
+	font-size: 35px;
+}
+.log-out-block {
+    float: right;
+}
+.arvo {
+	font-family: 'Arvo', sans-serif;
+}
+
+
+/*FORMS*/
+.classic-form {
+    border-radius: 10px;
+    padding: 10px 10px 10px 10px;
+    margin-top: 10px;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    color: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.classic-form * {
+    text-align: center;
+}
+.classic-form *:focus {
+    outline: none;
+}
+.classic-form input {
+    caret-color: white;
+    color: white;
+    border: 0;
+    background: 0;
+    border-bottom: 0.6px solid rgb(71, 71, 71);
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.classic-form input:focus {
+    text-shadow: 2px 2px 2px black;
+    color: rgb(255, 170, 0);
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.res-reg-info, .res-auth-info {
+    display: none;
+}
+.auth-form {
+    display: none;
+}
+
+
+/*BUTTONS*/
+.form-button-blue {
+    user-select: none;
+    border: 0;
+    border-radius: 5px;
+    margin: 15px 15px 15px 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(1, 77, 198);
+    color: white;
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.form-button-yellow {
+    user-select: none;
+    border: 0;
+    border-radius: 5px;
+    margin: 15px 15px 15px 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgb(255, 221, 0);
+    color: black;
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.form-button-blue:focus, form-button-yellow:focus {
+    outline: none;
+}
+.form-button-blue:hover {
+    box-shadow: 0px 0px 5px rgb(1, 77, 198);
+    background-color: rgb(13, 68, 155);
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.form-button-blue:active {
+    box-shadow: 0px 0px 5px rgb(1, 77, 198);
+    background-color: rgb(0, 40, 104);
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.form-button-yellow:hover {
+    box-shadow: 0px 0px 5px rgb(255, 221, 0);
+    background-color: rgb(255, 221, 0);
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.form-button-yellow:active {
+    box-shadow: 0px 0px 5px rgb(255, 221, 0);
+    background-color: rgb(255, 170, 0);
+    -webkit-transition: 0.24s ease;
+    -moz-transition: 0.24s ease;
+    -o-transition: 0.24s ease;
+    transition: 0.24s ease;
+}
+.logoutbutton {
+    margin-top: 5px;
+    border: 0;
+    background: 0;
+}
+.logoutbutton:hover {
+    opacity: 0.5;
+}
+.logoutbutton:focus {
+    outline: none;
+}

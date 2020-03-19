@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Главная</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="icon" type="image/ico" href="img/logo/mainlogo.ico">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+		crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Cuprum" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Gugi" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#regaccount').click(function () {
+				$.post('/regaccount', {
+					name: $('#name').val(),
+					surename: $('#surename').val(),
+					patronymic: $('#patronymic').val(),
+					login: $('#login').val(),
+					email: $('#email').val(),
+					password: $('#password').val(),
+					repeatpassword: $('#repeatpassword').val()
+				}).done(function (res) {
+					if (res == 'Аккаунт создан!') {
+						alert(res);
+					}
+					else {
+						$('#resreg').text(res);
+						$('.reg-form').hide(500, function () {
+							$('.res-reg-info').show(500);
+						});
+						//$('.reg-form').css('display','none');
+					}
+				});
+			});
+			$('#sign-in').click(function () {
+				$.post('/auth', {
+					login: $('#login-log').val(),
+					password: $('#password-log').val()
+				}).done(function (res) {
+					if (res == 'complete') {
+						window.location.href = "page";
+					}
+					else {
+						$('#resauth').text(res);
+						$('.auth-form').hide(500, function () {
+							$('.res-auth-info').show(500);
+						});
+					}
+				});
+			});
+
+			$('#back-to-reg').click(function () {
+				$('.res-reg-info').hide(500, function () {
+					$('.reg-form').show(500);
+				});
+			});
+			$('#back-to-auth').click(function () {
+				$('.res-auth-info').hide(500, function () {
+					$('.auth-form').show(500);
+				});
+			});
+
+			$('.to-reg').click(function () {
+				$('.auth-form').hide(500, function () {
+					$('.reg-form').show(500);
+				});
+			});
+			$('.to-auth').click(function () {
+				$('.reg-form').hide(500, function () {
+					$('.auth-form').show(500);
+				});
+			});
+		});
+	</script>
+	<style type="text/css">
+		body {
+			height: 100%;
+			width: 100%;
+			background-color: rgb(71, 71, 71);
+			background-size: cover;
+			background-attachment: fixed;
+		}
+
+		header {
+			height: 48px;
+			background-color: rgb(51, 51, 51);
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<span class="head-info">Node.js</span>
+	</header>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 reg-form">
+				<form class="classic-form">
+					<button type="button" class="form-button-yellow to-auth">Авторизация</button>
+					<label><b>Регистрация</b></label>
+					<label for="name">Имя:</label>
+					<input type="text" id="name">
+					<label for="surename">Фамилия:</label>
+					<input type="text" id="surename">
+					<label for="patronymic">Отчество:</label>
+					<input type="text" id="patronymic">
+					<label for="login">Логин:</label>
+					<input type="text" id="login">
+					<label for="email">Email:</label>
+					<input type="email" id="email">
+					<label for="password">Пароль:</label>
+					<input type="password" id="password">
+					<label for="repeatpassword">Повторите пароль:</label>
+					<input type="password" id="repeatpassword">
+					<button type="button" class="form-button-yellow" id="regaccount">Зарегистрироваться</button>
+				</form>
+			</div>
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 auth-form">
+				<form class="classic-form">
+					<button type="button" class="form-button-yellow to-reg">Регистрация</button>
+					<label><b>Авторизация</b></label>
+					<label for="login-log">Логин:</label>
+					<input type="text" id="login-log">
+					<label for="password-log">Пароль:</label>
+					<input type="password" id="password-log">
+					<button type="button" class="form-button-yellow" id="sign-in">Войти</button>
+				</form>
+			</div>
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 res-reg-info">
+				<div class="classic-form">
+					<span id="resreg"></span>
+					<hr>
+					<button type="button" id="back-to-reg" class="form-button-yellow">Назад</button>
+				</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 res-auth-info">
+				<div class="classic-form">
+					<span id="resauth"></span>
+					<hr>
+					<button type="button" id="back-to-auth" class="form-button-yellow">Назад</button>
+				</div>
+			</div>
+			<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4"></div>
+		</div>
+	</div>
+</body>
+
+</html>
